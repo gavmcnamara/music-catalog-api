@@ -14,40 +14,8 @@
 		<dd><input type ='text' size='30' name='name' placeholder = '{{item.name }}'></dd>
 	<dt>Description:</dt>
 		<dd><textarea name = 'description' rows='5' cols='40' placeholder = '{{item.description }}'></textarea></dd>
-	<dt>Price:</dt>
+	<dt>Year:</dt>
 		<dd><input type = 'text' size = '8' name='year' placeholder = '{{item.year}}'></dd>
-	<dt>Course:</dt>
-
-	{% if item.course == 'Appetizer' %}
-		<dd><input type ='radio' name='course' value='Genre'checked >Genre</dd>
-	{%else%}
-	<dd><input type ='radio' name='course' value='Genre' >Genre</dd>
-    {% endif %}
-
-    {% if item.course == 'Entree' %}
-       <dd><input type ='radio' name='course' value='Band' checked>Band</dd>
-
-    {%else%}
-		<dd><input type ='radio' name='course' value='Band'>Band</dd>
-    {% endif %}
-
-	{% if item.course == 'Dessert'%}
-		<dd><input type ='radio' name='course' value='Artist'checked >Artist</dd>
-
-	{% else %}
-	   <dd><input type ='radio' name='course' value='Artist'>Artist</dd>
-
-	{% endif %}
-
-
-	{%if item.course =='Beverage'%}
-		<dd><input type ='radio' name='Location' value='Names'checked >Names</dd>
-	{% else %}
-		<dd><input type ='radio' name='Location' value='Names'>Names</dd>
-	{% endif %}
-
-
-
 
 
 </dl>
