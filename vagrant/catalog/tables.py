@@ -10,7 +10,7 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
     picture = Column(String(250))
@@ -61,5 +61,5 @@ class Band(Base):
 
 ####insert at end of file#########
 
-engine = create_engine('sqlite:///genresofmusicwithusers.db')
+engine = create_engine('sqlite:///favoritemusic.db')
 Base.metadata.create_all(engine)
