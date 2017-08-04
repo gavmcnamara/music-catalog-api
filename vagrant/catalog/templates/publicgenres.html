@@ -1,4 +1,4 @@
-{% extends "main.html" %}
+
 {% block content %}
 
 <html>
@@ -8,8 +8,12 @@
 
 <div class = 'pane'>
         <div class = 'header'>
-        <h1>{{ 'Different Types of Genres' }}</h1>
-    </div>
+        <h1>{{ 'Different Types of Genres' }}
+            <figure>
+
+            </figure>
+        </h1>
+        </div>
      <a href="{{url_for('showLogin')}}">Click Here to Log in </a> </h3> </a>
 
 
@@ -25,7 +29,8 @@
 
 </div>
 
-{% endfor %}
+    {% endfor %}
+    {% endblock %}
 
 </body>
 

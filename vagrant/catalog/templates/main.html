@@ -8,6 +8,7 @@
 		<h1>{{ 'Different Types of Genres' }}</h1>
 	</div>
     <a href="{{url_for('newGenre')}}" > <h3> Create a new Genre </h3> </a>
+	<a href="{{url_for('gdisconnect')}}" > <h3> Logout </h3> </a>
 
 
 	{% for g in genre %}
@@ -17,10 +18,11 @@
 
 	<p>{{g.name}}</p>
 
-	<a href='{{url_for('genreItem',genre_id = g.id)}}' >View</a>  |
+	<a href='{{url_for('genreItem',genre_id = g.id)}}' >View</a>
+	{% if 'user_id' in session and session['user_id'] == g.user_id %} |
 	<a href = "{{url_for('editGenre',genre_id = g.id)}}">Edit Genre</a>  |
 	<a href = "{{url_for('deleteGenre',genre_id = g.id)}}">Delete Genre</a>
-
+	{% endif %}
 </div>
 
 {% endfor %}
