@@ -10,7 +10,8 @@
 		<h1>{{ genre.name }}</h1>
 	</div>
 
-	<a href = '/'> Back </a>
+	<a href = '/'> Back </a> |
+	<a href = '{{url_for('newGenreItem', genre_id = genre.id) }}'>Create New Item</a> |
 
 <div class = 'flash'>
 		      {% with messages = get_flashed_messages() %}
@@ -48,7 +49,6 @@
 
 	<div class = "editdeletepane">
 	{% if 'user_id' in session and session['user_id'] == i.user_id %} |
-	<a href = '{{url_for('newGenreItem', genre_id = genre.id) }}'>Create New Item</a> |
 	<a href='{{url_for('editGenreItem',genre_id = genre.id, band_id=i.id)}}' >Edit</a> |
 	<a href='{{url_for('deleteGenreItem', genre_id = genre.id, band_id=i.id)}}' >
 	Delete</a>
