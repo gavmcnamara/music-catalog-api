@@ -1,5 +1,10 @@
-from flask import Flask, render_template,\
-    request, redirect, url_for, flash, jsonify
+from flask import (Flask,
+                   render_template,
+                   request,
+                   redirect,
+                   url_for,
+                   flash,
+                   jsonify)
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from tables import Base, Genre, Band, User
@@ -269,10 +274,10 @@ def newGenre():
 # Edit a Genre
 @app.route('/genres/<int:genre_id>/edit/', methods=['GET', 'POST'])
 def editGenre(genre_id):
-    editedGenre = session.query(
-        Genre).filter_by(id=genre_id).one()
     if 'username' not in login_session:
         return redirect('/login')
+    editedGenre = session.query(
+        Genre).filter_by(id=genre_id).one()
     if editedGenre.user_id != login_session['user_id']:
         return redirect('/')
     if request.method == 'POST':
@@ -287,10 +292,10 @@ def editGenre(genre_id):
 # Delete a Genre
 @app.route('/genres/<int:genre_id>/delete/', methods=['GET', 'POST'])
 def deleteGenre(genre_id):
-    genreToDelete = session.query(
-        Genre).filter_by(id=genre_id).one()
     if 'username' not in login_session:
         return redirect('/login')
+    genreToDelete = session.query(
+        Genre).filter_by(id=genre_id).one()
     if genreToDelete.user_id != login_session['user_id']:
         flash("Not Authorized")
         return redirect("/")
