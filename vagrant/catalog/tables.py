@@ -25,6 +25,7 @@ class Genre(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
+
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
@@ -44,7 +45,6 @@ class Band(Base):
     genre_id = Column(Integer, ForeignKey('genre.id'))
     genre = relationship(Genre)
     user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
 
 
 # We added this serialize function to be able to send JSON objects in a
